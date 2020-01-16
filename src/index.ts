@@ -4,7 +4,7 @@ import * as express from 'express';
 import axios from 'axios';
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 const instance = process.env.LOCAL_INSTANCE || 'localhost';
 const targetInstance = process.env.TARGET_INSTANCE || 'localhost';
 
