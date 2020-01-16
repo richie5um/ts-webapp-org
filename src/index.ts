@@ -4,14 +4,14 @@ import * as express from 'express';
 import axios from 'axios';
 
 const app = express();
-const port = 80;
+const port = 8080;
 const instance = process.env.LOCAL_INSTANCE || 'localhost';
 const targetInstance = process.env.TARGET_INSTANCE || 'localhost';
 
 app.get('/hello', (req, res) => res.send(`Hello World - ${instance}`));
 
 app.get('/target', async (req, res) => {
-    const response = await axios.get(`http://${targetInstance}:80/hello`);
+    const response = await axios.get(`http://${targetInstance}:${port}/hello`);
 
     res.send(response.data);
 });
